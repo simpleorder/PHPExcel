@@ -236,7 +236,7 @@ class PHPExcel_Cell
 				$this->_value = PHPExcel_Cell_DataType::checkString($pValue);
 				break;
 			case PHPExcel_Cell_DataType::TYPE_NUMERIC:
-				$this->_value = (float)$pValue;
+				$this->_value = strpos($pValue, '.') === false ? (int)$pValue : (float)$pValue;
 				break;
 			case PHPExcel_Cell_DataType::TYPE_FORMULA:
 				$this->_value = (string)$pValue;
